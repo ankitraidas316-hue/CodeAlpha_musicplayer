@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vanilla JS Music Player</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="player">
+    <div class="artwork-wrap">
+      <img id="cover" class="artwork" src="" alt="Album cover" />
+    </div>
+
+    <div class="meta">
+      <h1 id="title" class="title">Title</h1>
+      <p id="artist" class="artist">Artist</p>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn" class="btn" aria-label="Previous">
+        <!-- Left chevron -->
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6V6zm12 12L9 12l9-6v12z"/></svg>
+      </button>
+
+      <button id="playPauseBtn" class="btn primary" aria-label="Play/Pause">
+        <!-- Play icon (toggled in JS) -->
+        <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pauseIcon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+      </button>
+
+      <button id="nextBtn" class="btn" aria-label="Next">
+        <!-- Right chevron -->
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 6h2v12h-2V6zM6 18l9-6-9-6v12z"/></svg>
+      </button>
+    </div>
+
+    <div class="timeline">
+      <span id="currentTime" class="time">0:00</span>
+      <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+      <span id="duration" class="time">0:00</span>
+    </div>
+
+    <div class="volume">
+      <label for="volume" class="sr-only">Volume</label>
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3z"/></svg>
+      <input id="volume" type="range" min="0" max="1" value="0.8" step="0.01" />
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12c0-1.77-1.02-3.29-2.5-4.03v8.06A4.49 4.49 0 0 0 19 12zm-2.5-7.79v2.06A6.984 6.984 0 0 1 21 12a6.98 6.98 0 0 1-4.5 6.73v2.06C20.59 19.56 23 16.05 23 12s-2.41-7.56-6.5-7.79z"/></svg>
+    </div>
+
+    <!-- Hidden audio element -->
+    <audio id="audio"></audio>
+
+    <!-- Optional: simple playlist (click to play) -->
+    <ul id="playlist" class="playlist" aria-label="Playlist"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
